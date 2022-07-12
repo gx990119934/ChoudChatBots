@@ -1,0 +1,21 @@
+server:
+  port: 50000
+
+application:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/bot?useUnicode=true&characterEncoding=UTF8&rewriteBatchedStatements=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+cc:
+  bot:
+    superindex:
+        token: 202923:2sqwq8213232Jwqq32
+    groupmanager:
+        token:

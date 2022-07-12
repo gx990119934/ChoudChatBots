@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="cloud.chat.common.DbMapper"/>
+        </plugin>
+
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin">
+            <property name="suppressJavaInterface" value="false"/>
+        </plugin>
+
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+
+        <!--1、配置数据库连接：生成代码过程中要使用到数据库中的表和字段信息-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/bot?serverTimezone=GMT&amp;nullCatalogMeansCurrent=true"
+                        userId="root"
+                        password="123456">
+        </jdbcConnection>
+
+        <!--2、配置数据模型包名和代码存放位置：targetPackage、targetProject-->
+        <javaModelGenerator targetPackage="cloud.chat.data.model" targetProject="src/main/java" >
+            <property name="rootClass" value="cloud.chat.common.DbPageParameter"/>
+        </javaModelGenerator>
+
+        <!--3、配置数据映射包名和代码存放位置：targetPackage、targetProject，首次生成后，建议之后不再生成，注销下行即可-->
+        <javaClientGenerator targetPackage="cloud.chat.data.mapper" targetProject="src/main/java" type="ANNOTATEDMAPPER"/>
+
+        <!--4、配置表名前缀：同一功能模块使用到的表，表名前缀相同，只生成与前缀匹配的数据模型类和数据映射类-->
+        <table tableName="%"></table>
+
+    </context>
+</generatorConfiguration>
